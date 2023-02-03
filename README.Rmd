@@ -8,7 +8,8 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "", 
-  echo = TRUE
+  echo = TRUE,
+  fig.align = 'center'
 )
 ```
 
@@ -17,15 +18,26 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of shiny-app-setups is to compare setups for 1) R packages, 2) `golem` shiny apps, and 3) a `rhino` apps. 
+`shiny-app-setups` contains setups for 1) R packages, 2) `golem` shiny apps, and 3) a `rhino` apps. 
 
 All projects were created in the RStudio IDE (with the default options selected). 
 
-## R packages 
+## R App (as a package)
 
-When creating a new package in the IDE, I provide a name and the parent folder. New packages default to using `renv` and creating a git repo. 
+From the console, packages are built using `devtools` and `usethis`. 
 
-```{r rpkg-setup, out.width='100%', out.height='100%', echo=FALSE}
+The function for building a new package is `usethis::create_package()`
+
+```{r create_package-myPkgApp, eval=FALSE}
+install.packages("devtools")
+library(devtools)
+Loading required package: usethis
+usethis::create_package(path = "myPkgApp")
+```
+
+When creating a new package in the IDE, I provide a name and the parent folder. New packages default to using `renv` and create a git repo. 
+
+```{r rpkg-setup, out.width='70%', out.height='70%', echo=FALSE}
 knitr::include_graphics(path = "img/rpkg-setup.png")
 ```
 
@@ -34,7 +46,7 @@ knitr::include_graphics(path = "img/rpkg-setup.png")
 <!-- tree myRPkg -L 5 -->
 
 ```{bash pkg-tree, eval=FALSE}
-myRPkg
+myPkgApp/
   ├── DESCRIPTION
   ├── NAMESPACE
   ├── R
@@ -56,13 +68,22 @@ myRPkg
 ### `DESCRIPTION` file
 
 ```{bash descr-pkg, echo=FALSE}
-cat myRPkg/DESCRIPTION
+cat myPkgApp/DESCRIPTION
 ```
 
 
 ## `golem` projects 
 
-```{r golem-setup, out.width='100%', out.height='100%', echo=FALSE}
+From the console, `golem` apps are also packages and are built using `golem::create_golem()`:
+
+```{r create_golem-myGolemApp, eval=FALSE}
+install.packages("golem")
+library(golem)
+golem::create_golem(path = "myGolemApp")
+```
+
+
+```{r golem-setup, out.width='70%', out.height='70%', echo=FALSE}
 knitr::include_graphics(path = "img/golem-setup.png")
 ```
 
@@ -112,7 +133,16 @@ cat myGolemApp/DESCRIPTION
 
 ## `rhino` projects
 
-```{r rhino-setup, out.width='100%', out.height='100%', echo=FALSE}
+From the console, `rhino` apps not packages (they use [`box`](https://klmr.me/box/)), and are built using `rhino::init()`:
+
+```{r init-myRhinoApp, eval=FALSE}
+install.packages("rhino")
+library(rhino)
+rhino::init(dir = "myRhinoApp")
+```
+
+
+```{r rhino-setup, out.width='70%', out.height='70%', echo=FALSE}
 knitr::include_graphics(path = "img/rhino-setup.png")
 ```
 

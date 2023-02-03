@@ -6,25 +6,36 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of shiny-app-setups is to compare setups for 1) R packages, 2)
-`golem` shiny apps, and 3) a `rhino` apps.
+`shiny-app-setups` contains setups for 1) R packages, 2) `golem` shiny
+apps, and 3) a `rhino` apps.
 
 All projects were created in the RStudio IDE (with the default options
 selected).
 
-## R packages
+## R App (as a package)
+
+From the console, packages are built using `devtools` and `usethis`.
+
+The function for building a new package is `usethis::create_package()`
+
+``` r
+install.packages("devtools")
+library(devtools)
+Loading required package: usethis
+usethis::create_package(path = "myPkgApp")
+```
 
 When creating a new package in the IDE, I provide a name and the parent
-folder. New packages default to using `renv` and creating a git repo.
+folder. New packages default to using `renv` and create a git repo.
 
-<img src="img/rpkg-setup.png" width="100%" height="100%" />
+<img src="img/rpkg-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
 ### Folder structure
 
 <!-- tree myRPkg -L 5 -->
 
 ``` bash
-myRPkg
+myPkgApp/
   ├── DESCRIPTION
   ├── NAMESPACE
   ├── R
@@ -45,21 +56,31 @@ myRPkg
 
 ### `DESCRIPTION` file
 
-    Package: myRPkg
-    Type: Package
-    Title: What the Package Does (Title Case)
-    Version: 0.1.0
-    Author: Who wrote it
-    Maintainer: The package maintainer <yourself@somewhere.net>
-    Description: More about what it does (maybe more than one line)
-        Use four spaces when indenting paragraphs within the Description.
-    License: What license is it under?
+    Package: myPkgApp
+    Title: What the Package Does (One Line, Title Case)
+    Version: 0.0.0.9000
+    Authors@R: 
+        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+               comment = c(ORCID = "YOUR-ORCID-ID"))
+    Description: What the package does (one paragraph).
+    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+        license
     Encoding: UTF-8
-    LazyData: true
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.2.3
 
 ## `golem` projects
 
-<img src="img/golem-setup.png" width="100%" height="100%" />
+From the console, `golem` apps are also packages and are built using
+`golem::create_golem()`:
+
+``` r
+install.packages("golem")
+library(golem)
+golem::create_golem(path = "myGolemApp")
+```
+
+<img src="img/golem-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
 ### Folder structure
 
@@ -121,7 +142,16 @@ myGolemApp
 
 ## `rhino` projects
 
-<img src="img/rhino-setup.png" width="100%" height="100%" />
+From the console, `rhino` apps not packages (they use
+[`box`](https://klmr.me/box/)), and are built using `rhino::init()`:
+
+``` r
+install.packages("rhino")
+library(rhino)
+rhino::init(dir = "myRhinoApp")
+```
+
+<img src="img/rhino-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
 ### Folder structure
 
