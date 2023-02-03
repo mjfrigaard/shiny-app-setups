@@ -241,3 +241,50 @@ When creating a new `leprechaun` package in the IDE, it’s identical to
 the R package setup.
 
 <img src="img/leprechaun-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
+
+### Folder structure
+
+``` bash
+myLeprechaunApp/
+      ├── DESCRIPTION
+      ├── NAMESPACE
+      ├── R
+      │   ├── _disable_autoload.R
+      │   ├── assets.R
+      │   ├── input-handlers.R
+      │   ├── leprechaun-utils.R
+      │   ├── run.R
+      │   ├── server.R
+      │   ├── ui.R
+      │   └── zzz.R
+      ├── inst
+      │   ├── assets
+      │   ├── dev
+      │   ├── img
+      │   └── run
+      │       └── app.R
+      └── myLeprechaunApp.Rproj
+      
+      7 directories, 12 files
+```
+
+### `DESCRIPTION` file
+
+    Package: myLeprechaunApp
+    Title: What the Package Does (One Line, Title Case)
+    Version: 0.0.0.9000
+    Authors@R: 
+        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+               comment = c(ORCID = "YOUR-ORCID-ID"))
+    Description: What the package does (one paragraph).
+    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+        license
+    Encoding: UTF-8
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.2.3
+    Imports: 
+        bslib,
+        htmltools,
+        shiny
+    Suggests: 
+        pkgload

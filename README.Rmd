@@ -231,3 +231,38 @@ When creating a new `leprechaun` package in the IDE, it's identical to the R pac
 ```{r leprechaun-setup, out.width='70%', out.height='70%', echo=FALSE}
 knitr::include_graphics(path = "img/leprechaun-setup.png")
 ```
+
+
+### Folder structure 
+
+
+```{bash tree-leprechaun, eval=FALSE}
+myLeprechaunApp/
+      ├── DESCRIPTION
+      ├── NAMESPACE
+      ├── R
+      │   ├── _disable_autoload.R
+      │   ├── assets.R
+      │   ├── input-handlers.R
+      │   ├── leprechaun-utils.R
+      │   ├── run.R
+      │   ├── server.R
+      │   ├── ui.R
+      │   └── zzz.R
+      ├── inst
+      │   ├── assets
+      │   ├── dev
+      │   ├── img
+      │   └── run
+      │       └── app.R
+      └── myLeprechaunApp.Rproj
+      
+      7 directories, 12 files
+```
+
+
+### `DESCRIPTION` file
+
+```{bash descr-leprechaun, echo=FALSE}
+cat myLeprechaunApp/DESCRIPTION
+```
