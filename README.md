@@ -26,7 +26,9 @@ usethis::create_package(path = "myPkgApp")
 ```
 
 When creating a new package in the IDE, I provide a name and the parent
-folder. New packages default to using `renv` and create a git repo.
+folder. New R packages use `roxygen2` (`roxygen = TRUE`) and check the
+package name (`check_name = TRUE`), and default to using `renv` and
+create a git repo.
 
 <img src="img/rpkg-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
@@ -79,6 +81,12 @@ install.packages("golem")
 library(golem)
 golem::create_golem(path = "myGolemApp")
 ```
+
+When creating a new `golem` package in the IDE, I provide the name and
+the parent folder.
+
+New `golem` packages automatically perform a check on the name of the
+package (`check_name = TRUE`).
 
 <img src="img/golem-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
@@ -151,6 +159,12 @@ library(rhino)
 rhino::init(dir = "myRhinoApp")
 ```
 
+When creating a new `rhino` package in the IDE, I provide the name and
+the parent folder.
+
+New `rhino` packages automatically create GitHub Actions Continuous
+Integration (`github_actions_ci = TRUE`).
+
 <img src="img/rhino-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
 
 ### Folder structure
@@ -204,3 +218,26 @@ myRhinoApp
 ### `rhino.yml` file
 
     sass: node
+
+## `leprechaun` projects
+
+`leprechaun` apps are built using the same methods as R packages
+(`devtools` and `usethis`).
+
+``` r
+usethis::create_package("myLeprechaunApp")
+```
+
+After the new project opens, install and load the `leprechaun` package,
+then run `leprechaun::scaffold()`:
+
+``` r
+install.packages("leprechaun")
+library(leprechaun)
+leprechaun::scaffold()
+```
+
+When creating a new `leprechaun` package in the IDE, it’s identical to
+the R package setup.
+
+<img src="img/leprechaun-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
