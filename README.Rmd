@@ -1,0 +1,173 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "", 
+  echo = TRUE
+)
+```
+
+# `shiny-app-setups`
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of shiny-app-setups is to compare setups for 1) R packages, 2) `golem` shiny apps, and 3) a `rhino` apps. 
+
+All projects were created in the RStudio IDE (with the default options selected). 
+
+## R packages 
+
+When creating a new package in the IDE, I provide a name and the parent folder. New packages default to using `renv` and creating a git repo. 
+
+```{r rpkg-setup, out.width='100%', out.height='100%', echo=FALSE}
+knitr::include_graphics(path = "img/rpkg-setup.png")
+```
+
+### Folder structure 
+
+<!-- tree myRPkg -L 5 -->
+
+```{bash pkg-tree, eval=FALSE}
+myRPkg
+  ├── DESCRIPTION
+  ├── NAMESPACE
+  ├── R
+  │   └── hello.R
+  ├── man
+  │   └── hello.Rd
+  ├── myRPkg.Rproj
+  └── renv
+      ├── activate.R
+      ├── sandbox
+      │   └── R-4.2
+      │       └── x86_64-apple-darwin17.0
+      │           └── 84ba8b13
+      └── settings.dcf
+
+8 directories, 7 files
+```
+
+### `DESCRIPTION` file
+
+```{bash descr-pkg, echo=FALSE}
+cat myRPkg/DESCRIPTION
+```
+
+
+## `golem` projects 
+
+```{r golem-setup, out.width='100%', out.height='100%', echo=FALSE}
+knitr::include_graphics(path = "img/golem-setup.png")
+```
+
+### Folder structure 
+
+<!-- tree myGolemApp -L 5 -->
+
+```{bash golem, eval=FALSE}
+myGolemApp
+    ├── DESCRIPTION
+    ├── NAMESPACE
+    ├── R
+    │   ├── app_config.R
+    │   ├── app_server.R
+    │   ├── app_ui.R
+    │   └── run_app.R
+    ├── dev
+    │   ├── 01_start.R
+    │   ├── 02_dev.R
+    │   ├── 03_deploy.R
+    │   └── run_dev.R
+    ├── inst
+    │   ├── app
+    │   │   └── www
+    │   │       └── favicon.ico
+    │   └── golem-config.yml
+    ├── man
+    │   └── run_app.Rd
+    ├── myGolemApp.Rproj
+    ├── renv
+    │   ├── activate.R
+    │   ├── sandbox
+    │   │   └── R-4.2
+    │   │       └── x86_64-apple-darwin17.0
+    │   │           └── 84ba8b13
+    │   └── settings.dcf
+    └── renv.lock
+
+12 directories, 17 files
+```
+
+### `DESCRIPTION` file
+
+```{bash descr-golem, echo=FALSE}
+cat myGolemApp/DESCRIPTION
+```
+
+## `rhino` projects
+
+```{r rhino-setup, out.width='100%', out.height='100%', echo=FALSE}
+knitr::include_graphics(path = "img/rhino-setup.png")
+```
+
+### Folder structure 
+
+```{bash tree-rhino, eval=FALSE}
+myRhinoApp
+    ├── app
+    │   ├── js
+    │   │   └── index.js
+    │   ├── logic
+    │   │   └── __init__.R
+    │   ├── main.R
+    │   ├── static
+    │   │   └── favicon.ico
+    │   ├── styles
+    │   │   └── main.scss
+    │   └── view
+    │       └── __init__.R
+    ├── app.R
+    ├── config.yml
+    ├── dependencies.R
+    ├── myRhinoApp.Rproj
+    ├── renv
+    │   ├── activate.R
+    │   ├── library
+    │   │   └── R-4.2
+    │   │       └── x86_64-apple-darwin17.0
+    │   ├── sandbox
+    │   │   └── R-4.2
+    │   │       └── x86_64-apple-darwin17.0
+    │   └── settings.dcf
+    ├── renv.lock
+    ├── rhino.yml
+    └── tests
+        ├── cypress
+        │   └── integration
+        │       └── app.spec.js
+        ├── cypress.json
+        └── testthat
+            └── test-main.R
+
+18 directories, 17 files
+```
+
+
+### `config.yml` file
+
+```{bash config-rhino, echo=FALSE}
+cat myRhinoApp/config.yml
+```
+
+
+### `rhino.yml` file
+
+```{bash rhino-yml, echo=FALSE}
+cat myRhinoApp/rhino.yml
+```
