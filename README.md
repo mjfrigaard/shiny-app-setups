@@ -6,11 +6,38 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-`shiny-app-setups` contains setups for 1) R packages, 2) `golem` shiny
-apps, and 3) a `rhino` apps.
+`shiny-app-setups` contains setups for 1) A vanilla shiny app
+(`VanillaApp`), 2) an app built as an R package, 2) a `golem` shiny app
+3) a `rhino` app, and 4) a `leprechaun` app.
 
-All projects were created in the RStudio IDE (with the default options
-selected).
+All projects were created in console and in the RStudio IDE (with the
+default options selected).
+
+## Basic shiny app
+
+Building a shiny app from **RStudio’s New Project Wizard** results in
+the following folder structure.
+
+<img src="img/vanilla-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
+
+### Folder structure
+
+``` bash
+VanillaApp/
+  ├── VanillaApp.Rproj
+  ├── app.R
+  ├── renv
+  │   ├── activate.R
+  │   ├── library
+  │   │   └── R-4.2
+  │   ├── sandbox
+  │   │   └── R-4.2
+  │   ├── settings.dcf
+  │   └── staging
+  └── renv.lock
+
+7 directories, 5 files
+```
 
 ## R App (as a package)
 
@@ -59,16 +86,16 @@ myPkgApp/
 ### `DESCRIPTION` file
 
     Package: myPkgApp
-    Title: What the Package Does (One Line, Title Case)
-    Version: 0.0.0.9000
-    Authors@R: 
-        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-               comment = c(ORCID = "YOUR-ORCID-ID"))
-    Description: What the package does (one paragraph).
-    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-        license
+    Type: Package
+    Title: What the Package Does (Title Case)
+    Version: 0.1.0
+    Author: Who wrote it
+    Maintainer: The package maintainer <yourself@somewhere.net>
+    Description: More about what it does (maybe more than one line)
+        Use four spaces when indenting paragraphs within the Description.
+    License: What license is it under?
     Encoding: UTF-8
-    Roxygen: list(markdown = TRUE)
+    LazyData: true
     RoxygenNote: 7.2.3
 
 ## `golem` projects
@@ -288,3 +315,27 @@ myLeprechaunApp/
         shiny
     Suggests: 
         pkgload
+
+## Shiny projects
+
+When creating a shiny app
+
+### Folder structure
+
+``` bash
+myShinyApp/
+    ├── app.R
+    ├── myShinyApp.Rproj
+    ├── renv
+    │   ├── activate.R
+    │   ├── library
+    │   │   └── R-4.2
+    │   │       └── x86_64-apple-darwin17.0
+    │   ├── sandbox
+    │   │   └── R-4.2
+    │   │       └── x86_64-apple-darwin17.0
+    │   └── settings.dcf
+    └── renv.lock
+
+8 directories, 5 files
+```
