@@ -10,7 +10,7 @@
 (`VanillaApp`), 2) an app built as an R package, 2) a `golem` shiny app
 3) a `rhino` app, and 4) a `leprechaun` app.
 
-All projects were created in console and in the RStudio IDE (with the
+All projects were created in console or in the RStudio IDE (with the
 default options selected).
 
 ## Basic shiny app
@@ -315,27 +315,3 @@ myLeprechaunApp/
         shiny
     Suggests: 
         pkgload
-
-## Shiny projects
-
-When creating a shiny app
-
-### Folder structure
-
-``` bash
-myShinyApp/
-    ├── app.R
-    ├── myShinyApp.Rproj
-    ├── renv
-    │   ├── activate.R
-    │   ├── library
-    │   │   └── R-4.2
-    │   │       └── x86_64-apple-darwin17.0
-    │   ├── sandbox
-    │   │   └── R-4.2
-    │   │       └── x86_64-apple-darwin17.0
-    │   └── settings.dcf
-    └── renv.lock
-
-8 directories, 5 files
-```
