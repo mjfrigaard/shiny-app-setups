@@ -19,12 +19,12 @@
 ## to change the name in the app_sys() function in app_config.R /!\
 ##
 golem::fill_desc(
-  pkg_name = "myGolemApp", # The Name of the package containing the App
-  pkg_title = "PKG_TITLE", # The Title of the package containing the App
-  pkg_description = "PKG_DESC.", # The Description of the package containing the App
-  author_first_name = "AUTHOR_FIRST", # Your First Name
-  author_last_name = "AUTHOR_LAST", # Your Last Name
-  author_email = "AUTHOR@MAIL.COM", # Your Email
+  pkg_name = "myGolemApp",
+  pkg_title = "An example goelm app",
+  pkg_description = "A working example of the golem package.",
+  author_first_name = "Martin",
+  author_last_name = "Frigaard",
+  author_email = "mjfrigaard@pm.me",
   repo_url = NULL # The URL of the GitHub Repo (optional)
 )
 
@@ -50,7 +50,7 @@ golem::use_recommended_tests()
 
 ## Favicon ----
 # If you want to change the favicon (default is golem's one)
-golem::use_favicon() # path = "path/to/ico". Can be an online file.
+# golem::use_favicon() # path = "path/to/ico". Can be an online file.
 # golem::remove_favicon() # Uncomment to remove the default favicon
 
 ## Add helper functions ----

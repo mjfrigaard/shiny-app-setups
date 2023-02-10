@@ -5,12 +5,20 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
-  tagList(
+  shiny::tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic
-    fluidPage(
-      h1("myGolemApp")
+    shiny::fluidPage(
+      shiny::tags$h1("myGolemApp"),
+      shiny::sidebarLayout(
+        shiny::sidebarPanel(
+          mod_var_input_ui("vars")
+        ),
+        shiny::mainPanel(
+          mod_plot_ui("plot")
+        )
+      )
     )
   )
 }
@@ -28,7 +36,6 @@ golem_add_external_resources <- function() {
     "www",
     app_sys("app/www")
   )
-
   tags$head(
     favicon(),
     bundle_resources(
