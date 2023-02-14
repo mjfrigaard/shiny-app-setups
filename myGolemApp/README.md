@@ -4,6 +4,9 @@
 # myGolemApp
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/mjfrigaard/shiny-app-setups/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mjfrigaard/shiny-app-setups?branch=main)
 <!-- badges: end -->
 
 The goal of `myGolemApp` is to demonstrate the `golem` framework.

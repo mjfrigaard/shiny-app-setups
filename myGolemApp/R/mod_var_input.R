@@ -2,11 +2,13 @@
 #'
 #' @description A shiny Module.
 #'
-#' @param id,input,output,session Internal parameters for {shiny}.
+#' @param id
 #'
-#' @noRd
+#' @return shiny UI module
+#' @export mod_var_input_ui
 #'
-#' @importFrom shiny NS tagList
+#' @importFrom shiny NS tagList selectInput
+#' @importFrom shiny sliderInput textInput
 mod_var_input_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(
@@ -68,7 +70,12 @@ mod_var_input_ui <- function(id) {
 
 #' var_input Server Functions
 #'
-#' @noRd
+#' @param id
+#'
+#' @return shiny server module
+#' @export mod_var_input_server
+#'
+#' @importFrom shiny NS moduleServer reactive
 mod_var_input_server <- function(id) {
 
   shiny::moduleServer(id, function(input, output, session) {

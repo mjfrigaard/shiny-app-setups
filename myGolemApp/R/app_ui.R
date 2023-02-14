@@ -11,11 +11,14 @@ app_ui <- function(request) {
     # Your application UI logic
     shiny::fluidPage(
       shiny::tags$h1("myGolemApp"),
+
       shiny::sidebarLayout(
         shiny::sidebarPanel(
           mod_var_input_ui("vars")
         ),
         shiny::mainPanel(
+          # add icon
+          shiny::tags$img(src = "www/shiny.png"),
           mod_plot_ui("plot")
         )
       )

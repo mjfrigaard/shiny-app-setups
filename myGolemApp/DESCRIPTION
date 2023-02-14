@@ -7,9 +7,12 @@ Description: A working example of the golem package.
 License: MIT + file LICENSE
 Imports: 
     config (>= 0.3.1),
+    ggplot2,
     golem (>= 0.3.5),
-    shiny (>= 1.7.4)
+    shiny (>= 1.7.4),
+    stringr
 Suggests: 
+    covr,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

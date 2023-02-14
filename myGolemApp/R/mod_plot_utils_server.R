@@ -14,7 +14,12 @@
 #'
 #' @examples
 #' \donttest{
-#' load(movies.RData)
+#' load(
+#'   list.files(
+#'     system.file("extdata", package = "myGolemApp"),
+#'    pattern = "movies",
+#'    full.names = TRUE)
+#'    )
 #' point_plot(df = movies,
 #'   x_var = "critics_score",
 #'   y_var = "imdb_rating",

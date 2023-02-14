@@ -1,13 +1,13 @@
 #' Plot variables UI module
 #'
-#' @param id
+#' @param id module id
 #'
 #' @return shiny UI module
-#' @export mod_plot_ui
+#' @export display_plot_mod_ui
 #'
 #' @importFrom shiny NS tagList tags
 #' @importFrom shiny plotOutput verbatimTextOutput
-mod_plot_ui <- function(id) {
+display_plot_mod_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(
     shiny::tags$br(),
@@ -24,16 +24,18 @@ mod_plot_ui <- function(id) {
 
 #' Plot variables Server module
 #'
-#' @param id
+#' @param id module id
+#' @param var_inputs inputs from mod_var_input
 #'
 #' @return shiny server module
-#' @export mod_plot_server
+#' @export display_plot_mod_server
 #'
 #' @importFrom shiny NS moduleServer reactive
 #' @importFrom tools toTitleCase
 #' @importFrom shiny renderPlot
+#' @importFrom stringr str_replace_all
 #' @importFrom ggplot2 labs theme_minimal theme
-mod_plot_server <- function(id, var_inputs) {
+display_plot_mod_server <- function(id, var_inputs) {
   shiny::moduleServer(id, function(input, output, session) {
     movies <- myPkgApp::movies
 

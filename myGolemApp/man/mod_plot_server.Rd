@@ -2,16 +2,18 @@
 % Please edit documentation in R/mod_plot.R
 \name{mod_plot_server}
 \alias{mod_plot_server}
-\title{Plot variables Server module}
+\title{plot Server Functions}
 \usage{
 mod_plot_server(id, var_inputs)
 }
 \arguments{
-\item{id}{}
+\item{id}{module id}
+
+\item{var_inputs}{inputs from mod_var_input}
 }
 \value{
 shiny server module
 }
 \description{
-Plot variables Server module
+plot Server Functions
 }

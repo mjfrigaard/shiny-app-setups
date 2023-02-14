@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_plot.R
 \name{mod_plot_ui}
 \alias{mod_plot_ui}
-\title{Plot variables UI module}
+\title{plot UI Function}
 \usage{
 mod_plot_ui(id)
 }
@@ -13,5 +13,5 @@ mod_plot_ui(id)
 shiny UI module
 }
 \description{
-Plot variables UI module
+plot UI Function
 }

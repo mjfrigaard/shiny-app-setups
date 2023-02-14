@@ -1,6 +1,6 @@
 #' Import variables UI module
 #'
-#' @param id
+#' @param id module id
 #'
 #' @return shiny UI module
 #' @export mod_var_input_ui
@@ -68,7 +68,7 @@ mod_var_input_ui <- function(id) {
 
 #' Import variables Server module
 #'
-#' @param id
+#' @param id module id
 #'
 #' @return shiny server module
 #' @export mod_var_input_server

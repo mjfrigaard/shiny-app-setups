@@ -1,29 +1,44 @@
 #' plot UI Function
 #'
-#' @description A shiny Module.
+#' @param id
 #'
-#' @param id,input,output,session Internal parameters for {shiny}.
+#' @return shiny UI module
+#' @export mod_plot_ui
 #'
-#' @noRd
-#'
-#' @importFrom shiny NS tagList
+#' @importFrom shiny NS tagList tags
+#' @importFrom shiny plotOutput verbatimTextOutput
 mod_plot_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(
     shiny::tags$br(),
     shiny::tags$blockquote(
       shiny::tags$em(
-        shiny::tags$h6("The code for this application comes from the ",
-        shiny::tags$a("Building web applications with Shiny",
-          href = "https://rstudio-education.github.io/shiny-course/"),
-                      "tutorial"))),
+        shiny::tags$h6(
+          "The code for this application comes from the ",
+          shiny::tags$a("Building web applications with Shiny",
+            href = "https://rstudio-education.github.io/shiny-course/"
+          ),
+          "tutorial"
+        )
+      )
+    ),
     shiny::plotOutput(outputId = ns("scatterplot"))
   )
 }
 
 #' plot Server Functions
 #'
-#' @noRd
+#' @param id module id
+#' @param var_inputs inputs from mod_var_input
+#'
+#' @return shiny server module
+#' @export mod_plot_server
+#'
+#' @importFrom shiny NS moduleServer reactive
+#' @importFrom tools toTitleCase
+#' @importFrom shiny renderPlot
+#' @importFrom stringr str_replace_all
+#' @importFrom ggplot2 labs theme_minimal theme
 mod_plot_server <- function(id, var_inputs) {
   shiny::moduleServer(id, function(input, output, session) {
     movies <- myGolemApp::movies
@@ -39,6 +54,7 @@ mod_plot_server <- function(id, var_inputs) {
         plot_title = plot_title
       )
     })
+
     output$scatterplot <- shiny::renderPlot({
       plot <- point_plot(
         df = movies,
