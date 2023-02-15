@@ -1,0 +1,106 @@
+#' plot UI
+#'
+#' @param id Unique id for module instance.
+#'
+#' @keywords internal
+#'
+#' @return shiny UI module
+#' @export plotUI
+#'
+#' @importFrom shiny NS tagList tags
+#' @importFrom shiny plotOutput verbatimTextOutput
+plotUI <- function(id){
+	ns <- shiny::NS(id)
+	shiny::tagList(
+    shiny::tags$br(),
+    shiny::tags$blockquote(
+      shiny::tags$em(
+        shiny::tags$h6(
+          "The code for this application comes from the ",
+          shiny::tags$a("Building web applications with Shiny",
+            href = "https://rstudio-education.github.io/shiny-course/"
+          ),
+          "tutorial"
+        )
+      )
+    ),
+    shiny::plotOutput(outputId = ns("scatterplot"))
+	)
+}
+
+#' plot Server
+#'
+#' @param id Unique id for module instance.
+#' @param var_inputs inputs from module_var_input.
+#'
+#' @keywords internal
+#'
+#'
+#' @return shiny server module
+#' @export plot_server
+#'
+#' @importFrom shiny NS moduleServer reactive
+#' @importFrom tools toTitleCase
+#' @importFrom shiny renderPlot
+#' @importFrom stringr str_replace_all
+#' @importFrom ggplot2 labs theme_minimal theme
+plot_server <- function(id, var_inputs){
+	moduleServer(
+		id,
+		function(
+			input,
+			output,
+			session
+			){
+
+				ns <- session$ns
+				send_message <- make_send_message(session)
+
+    movies <- myLeprechaunApp::movies
+
+    inputs <- shiny::reactive({
+      plot_title <- tools::toTitleCase(var_inputs$plot_title())
+      list(
+        x = var_inputs$x(),
+        y = var_inputs$y(),
+        z = var_inputs$z(),
+        alpha = var_inputs$alpha(),
+        size = var_inputs$size(),
+        plot_title = plot_title
+      )
+    })
+
+    output$scatterplot <- shiny::renderPlot({
+      plot <- point_plot(
+        df = movies,
+        x_var = inputs()$x,
+        y_var = inputs()$y,
+        col_var = inputs()$z,
+        alpha_var = inputs()$alpha,
+        size_var = inputs()$size
+      )
+      plot +
+        ggplot2::labs(
+          title = inputs()$plot_title,
+            x = stringr::str_replace_all(
+                  tools::toTitleCase(
+                      inputs()$x),
+                    "_",
+                  " "),
+            y = stringr::str_replace_all(
+                  tools::toTitleCase(
+                      inputs()$y),
+                  "_",
+                " ")) +
+        ggplot2::theme_minimal() +
+        ggplot2::theme(legend.position = "bottom")
+    })
+		}
+	)
+}
+
+# UI
+# plotUI('id')
+
+# server
+# plot_server('id')

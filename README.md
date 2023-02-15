@@ -93,10 +93,22 @@ myPkgApp/
     Maintainer: The package maintainer <yourself@somewhere.net>
     Description: More about what it does (maybe more than one line)
         Use four spaces when indenting paragraphs within the Description.
-    License: What license is it under?
+    License: MIT + file LICENSE
     Encoding: UTF-8
     LazyData: true
     RoxygenNote: 7.2.3
+    Depends: 
+        R (>= 3.5)
+    Suggests: 
+        knitr,
+        rmarkdown,
+        testthat (>= 3.0.0)
+    Config/testthat/edition: 3
+    VignetteBuilder: knitr
+    Imports: 
+        ggplot2,
+        shiny,
+        stringr
 
 ## `golem` projects
 
@@ -158,22 +170,99 @@ myGolemApp
 ### `DESCRIPTION` file
 
     Package: myGolemApp
-    Title: An Amazing Shiny App
+    Title: An example goelm app
     Version: 0.0.0.9000
     Authors@R: 
-        person(given = "firstname",
-               family = "lastname",
-               role = c("aut", "cre"),
-               email = "your@email.com")
-    Description: What the package does (one paragraph).
-    License: What license is it under?
+        person("Martin", "Frigaard", , "mjfrigaard@pm.me", role = c("cre", "aut"))
+    Description: A working example of the golem package.
+    License: MIT + file LICENSE
     Imports: 
         config (>= 0.3.1),
+        ggplot2,
         golem (>= 0.3.5),
-        shiny (>= 1.7.4)
+        shiny (>= 1.7.4),
+        stringr
+    Suggests: 
+        covr,
+        spelling,
+        testthat (>= 3.0.0)
+    Config/testthat/edition: 3
     Encoding: UTF-8
+    Language: en-US
     LazyData: true
-    RoxygenNote: 7.1.1
+    RoxygenNote: 7.2.3
+    Depends: 
+        R (>= 2.10)
+
+## `leprechaun` projects
+
+`leprechaun` apps are built using the same methods as R packages
+(`devtools` and `usethis`).
+
+``` r
+usethis::create_package("myLeprechaunApp")
+```
+
+After the new project opens, install and load the `leprechaun` package,
+then run `leprechaun::scaffold()`:
+
+``` r
+install.packages("leprechaun")
+library(leprechaun)
+leprechaun::scaffold()
+```
+
+When creating a new `leprechaun` package in the IDE, it’s identical to
+the R package setup.
+
+<img src="img/leprechaun-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
+
+### Folder structure
+
+``` bash
+myLeprechaunApp/
+      ├── DESCRIPTION
+      ├── NAMESPACE
+      ├── R
+      │   ├── _disable_autoload.R
+      │   ├── assets.R
+      │   ├── input-handlers.R
+      │   ├── leprechaun-utils.R
+      │   ├── run.R
+      │   ├── server.R
+      │   ├── ui.R
+      │   └── zzz.R
+      ├── inst
+      │   ├── assets
+      │   ├── dev
+      │   ├── img
+      │   └── run
+      │       └── app.R
+      └── myLeprechaunApp.Rproj
+      
+      7 directories, 12 files
+```
+
+### `DESCRIPTION` file
+
+    Package: myLeprechaunApp
+    Title: What the Package Does (One Line, Title Case)
+    Version: 0.0.0.9000
+    Authors@R: 
+        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+               comment = c(ORCID = "YOUR-ORCID-ID"))
+    Description: What the package does (one paragraph).
+    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+        license
+    Encoding: UTF-8
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.2.3
+    Imports: 
+        bslib,
+        htmltools,
+        shiny
+    Suggests: 
+        pkgload
 
 ## `rhino` projects
 
@@ -245,73 +334,3 @@ myRhinoApp
 ### `rhino.yml` file
 
     sass: node
-
-## `leprechaun` projects
-
-`leprechaun` apps are built using the same methods as R packages
-(`devtools` and `usethis`).
-
-``` r
-usethis::create_package("myLeprechaunApp")
-```
-
-After the new project opens, install and load the `leprechaun` package,
-then run `leprechaun::scaffold()`:
-
-``` r
-install.packages("leprechaun")
-library(leprechaun)
-leprechaun::scaffold()
-```
-
-When creating a new `leprechaun` package in the IDE, it’s identical to
-the R package setup.
-
-<img src="img/leprechaun-setup.png" width="70%" height="70%" style="display: block; margin: auto;" />
-
-### Folder structure
-
-``` bash
-myLeprechaunApp/
-      ├── DESCRIPTION
-      ├── NAMESPACE
-      ├── R
-      │   ├── _disable_autoload.R
-      │   ├── assets.R
-      │   ├── input-handlers.R
-      │   ├── leprechaun-utils.R
-      │   ├── run.R
-      │   ├── server.R
-      │   ├── ui.R
-      │   └── zzz.R
-      ├── inst
-      │   ├── assets
-      │   ├── dev
-      │   ├── img
-      │   └── run
-      │       └── app.R
-      └── myLeprechaunApp.Rproj
-      
-      7 directories, 12 files
-```
-
-### `DESCRIPTION` file
-
-    Package: myLeprechaunApp
-    Title: What the Package Does (One Line, Title Case)
-    Version: 0.0.0.9000
-    Authors@R: 
-        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-               comment = c(ORCID = "YOUR-ORCID-ID"))
-    Description: What the package does (one paragraph).
-    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-        license
-    Encoding: UTF-8
-    Roxygen: list(markdown = TRUE)
-    RoxygenNote: 7.2.3
-    Imports: 
-        bslib,
-        htmltools,
-        shiny
-    Suggests: 
-        pkgload

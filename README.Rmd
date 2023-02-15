@@ -161,6 +161,67 @@ myGolemApp
 cat myGolemApp/DESCRIPTION
 ```
 
+## `leprechaun` projects
+
+`leprechaun` apps are built using the same methods as R packages (`devtools` and `usethis`). 
+
+```{r create_package-myLeprechaunApp, eval=FALSE}
+usethis::create_package("myLeprechaunApp")
+```
+
+After the new project opens, install and load the `leprechaun` package, then run `leprechaun::scaffold()`:
+
+```{r scaffold-myLeprechaunApp, eval=FALSE}
+install.packages("leprechaun")
+library(leprechaun)
+leprechaun::scaffold()
+```
+
+When creating a new `leprechaun` package in the IDE, it's identical to the R package setup. 
+
+```{r leprechaun-setup, out.width='70%', out.height='70%', echo=FALSE}
+knitr::include_graphics(path = "img/leprechaun-setup.png")
+```
+
+
+### Folder structure 
+
+
+```{bash tree-leprechaun, eval=FALSE}
+myLeprechaunApp/
+      ├── DESCRIPTION
+      ├── NAMESPACE
+      ├── R
+      │   ├── _disable_autoload.R
+      │   ├── assets.R
+      │   ├── input-handlers.R
+      │   ├── leprechaun-utils.R
+      │   ├── run.R
+      │   ├── server.R
+      │   ├── ui.R
+      │   └── zzz.R
+      ├── inst
+      │   ├── assets
+      │   ├── dev
+      │   ├── img
+      │   └── run
+      │       └── app.R
+      └── myLeprechaunApp.Rproj
+      
+      7 directories, 12 files
+```
+
+
+### `DESCRIPTION` file
+
+```{bash descr-leprechaun, echo=FALSE}
+cat myLeprechaunApp/DESCRIPTION
+```
+
+
+
+
+
 ## `rhino` projects
 
 From the console, `rhino` apps not packages (they use [`box`](https://klmr.me/box/)), and are built using `rhino::init()`:
@@ -235,64 +296,5 @@ cat myRhinoApp/config.yml
 ```{bash rhino-yml, echo=FALSE}
 cat myRhinoApp/rhino.yml
 ```
-
-
-## `leprechaun` projects
-
-`leprechaun` apps are built using the same methods as R packages (`devtools` and `usethis`). 
-
-```{r create_package-myLeprechaunApp, eval=FALSE}
-usethis::create_package("myLeprechaunApp")
-```
-
-After the new project opens, install and load the `leprechaun` package, then run `leprechaun::scaffold()`:
-
-```{r scaffold-myLeprechaunApp, eval=FALSE}
-install.packages("leprechaun")
-library(leprechaun)
-leprechaun::scaffold()
-```
-
-When creating a new `leprechaun` package in the IDE, it's identical to the R package setup. 
-
-```{r leprechaun-setup, out.width='70%', out.height='70%', echo=FALSE}
-knitr::include_graphics(path = "img/leprechaun-setup.png")
-```
-
-
-### Folder structure 
-
-
-```{bash tree-leprechaun, eval=FALSE}
-myLeprechaunApp/
-      ├── DESCRIPTION
-      ├── NAMESPACE
-      ├── R
-      │   ├── _disable_autoload.R
-      │   ├── assets.R
-      │   ├── input-handlers.R
-      │   ├── leprechaun-utils.R
-      │   ├── run.R
-      │   ├── server.R
-      │   ├── ui.R
-      │   └── zzz.R
-      ├── inst
-      │   ├── assets
-      │   ├── dev
-      │   ├── img
-      │   └── run
-      │       └── app.R
-      └── myLeprechaunApp.Rproj
-      
-      7 directories, 12 files
-```
-
-
-### `DESCRIPTION` file
-
-```{bash descr-leprechaun, echo=FALSE}
-cat myLeprechaunApp/DESCRIPTION
-```
-
 
 

@@ -1,3 +1,4 @@
 ^myLeprechaunApp\.Rproj$
 ^\.Rproj\.user$
 ^\.leprechaun$
+^data-raw$
