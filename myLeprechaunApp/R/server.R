@@ -10,7 +10,7 @@
 #' @keywords internal
 server <- function(input, output, session){
 
-	send_message <- make_send_message(session)
+	send_message <- make_send_message(session, prefix = "prefix")
 
 	   selected_vars <- var_input_server("vars")
 

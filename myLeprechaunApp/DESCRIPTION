@@ -13,9 +13,12 @@ RoxygenNote: 7.2.3
 Imports: 
     bslib,
     htmltools,
-    shiny
+    packer,
+    shiny,
+    yaml
 Suggests: 
-    pkgload
+    pkgload,
+    sass
 Depends: 
     R (>= 2.10)
 LazyData: true
