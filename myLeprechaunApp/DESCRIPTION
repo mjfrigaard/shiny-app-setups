@@ -13,10 +13,10 @@ RoxygenNote: 7.2.3
 Imports: 
     bslib,
     htmltools,
-    packer,
     shiny,
     yaml
 Suggests: 
+    packer,
     pkgload,
     sass
 Depends: 

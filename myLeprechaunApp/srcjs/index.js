@@ -1,24 +1,8 @@
-import {html, css, LitElement} from 'lit';
+import { message } from './modules/message.js';
+import 'shiny';
 
-export class SimpleGreeting extends LitElement {
-  static get styles() {
-    return css`p { color: blue }`;
-  }
-
-  static get properties() {
-    return {
-      name: {type: String}
-    }
-  }
-
-  constructor() {
-    super();
-    this.name = 'Somebody';
-  }
-
-  render() {
-    return html`<p>Hello, ${this.name}!</p>`;
-  }
-}
-
-customElements.define('simple-greeting', SimpleGreeting);
+// In shiny server use:
+// session$sendCustomMessage('show-packer', 'hello packer!')
+Shiny.addCustomMessageHandler('show-packer', (msg) => {
+  message(msg.text);
+})
