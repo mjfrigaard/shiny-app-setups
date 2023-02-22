@@ -1,15 +1,9 @@
-#' plot UI
+#' plot_display UI
 #'
 #' @param id Unique id for module instance.
 #'
 #' @keywords internal
-#'
-#' @return shiny UI module
-#' @export plotUI
-#'
-#' @importFrom shiny NS tagList tags
-#' @importFrom shiny plotOutput verbatimTextOutput
-plotUI <- function(id){
+plot_displayUI <- function(id){
 	ns <- shiny::NS(id)
 	shiny::tagList(
     shiny::tags$br(),
@@ -28,23 +22,12 @@ plotUI <- function(id){
 	)
 }
 
-#' plot Server
+#' plot_display Server
 #'
 #' @param id Unique id for module instance.
-#' @param var_inputs inputs from module_var_input.
 #'
 #' @keywords internal
-#'
-#'
-#' @return shiny server module
-#' @export plot_server
-#'
-#' @importFrom shiny NS moduleServer reactive
-#' @importFrom tools toTitleCase
-#' @importFrom shiny renderPlot
-#' @importFrom stringr str_replace_all
-#' @importFrom ggplot2 labs theme_minimal theme
-plot_server <- function(id, var_inputs){
+plot_display_server <- function(id, var_inputs){
 	moduleServer(
 		id,
 		function(
@@ -100,7 +83,7 @@ plot_server <- function(id, var_inputs){
 }
 
 # UI
-# plotUI('id')
+# plot_displayUI('id')
 
 # server
-# plot_server('id')
+# plot_display_server('id')

@@ -1,3 +1,4 @@
 ## code to prepare `movies` dataset goes here
-load("data-raw/movies.RData")
+pth <- system.file("extdata/movies.RData", package = "myLeprechaunApp")
+load(pth)
 usethis::use_data(movies, overwrite = TRUE)

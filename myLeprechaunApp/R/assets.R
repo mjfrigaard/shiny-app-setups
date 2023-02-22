@@ -9,8 +9,6 @@
 #' @importFrom htmltools htmlDependency
 #'
 #' @keywords internal
-#'
-#' @export serveAssets
 serveAssets <- function(modules = NULL) {
   # JavaScript files
   javascript <- list.files(

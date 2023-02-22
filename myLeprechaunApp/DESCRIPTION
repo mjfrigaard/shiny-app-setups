@@ -13,10 +13,8 @@ RoxygenNote: 7.2.3
 Imports: 
     bslib,
     htmltools,
-    shiny,
-    yaml
+    shiny
 Suggests: 
-    packer,
     pkgload,
     sass
 Depends: 

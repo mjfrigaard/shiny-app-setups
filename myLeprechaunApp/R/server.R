@@ -10,9 +10,12 @@
 #' @keywords internal
 server <- function(input, output, session){
 
-	send_message <- make_send_message(session, prefix = "prefix")
+	send_message <- make_send_message(session)
 
-	   selected_vars <- var_input_server("vars")
+  ## New code -->
+   selected_vars <- var_input_server("vars")
 
-     plot_server("plot", var_inputs = selected_vars)
+   plot_display_server("plot", var_inputs = selected_vars)
+   ## New code <--
+
 }

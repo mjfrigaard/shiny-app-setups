@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-`shiny-app-setups` contains setups for 1) A vanilla shiny app (`VanillaApp`), 2) an app built as an R package, 2) a `golem` shiny app 3) a `rhino` app, and 4) a `leprechaun` app.  
+`shiny-app-setups` contains setups for 1) A vanilla shiny app (`VanillaApp`), 2) an app built as an R package (`myPkgApp`), 2) a `golem` shiny app (`myGolemApp`) 3) a `leprechaun` app (`myLeprechaunApp`), and 4) a `rhino` app (`myRhinoApp`).  
 
-All projects were created in console or in the RStudio IDE (with the default options selected). 
+All projects were created in the console and/or in the RStudio IDE (with the default options selected). 
 
-## Basic shiny app 
+## Basic shiny app
 
 Building a shiny app from **RStudio's New Project Wizard** results in the following folder structure. 
 
@@ -30,23 +30,25 @@ Building a shiny app from **RStudio's New Project Wizard** results in the follow
 knitr::include_graphics(path = "img/vanilla-setup.png")
 ```
 
-### Folder structure 
+### Folder structure
 
 ```{bash vanilla-tree, eval=FALSE}
 VanillaApp/
-  ├── VanillaApp.Rproj
-  ├── app.R
-  ├── renv
-  │   ├── activate.R
-  │   ├── library
-  │   │   └── R-4.2
-  │   ├── sandbox
-  │   │   └── R-4.2
-  │   ├── settings.dcf
-  │   └── staging
-  └── renv.lock
+        ├── VanillaApp.Rproj
+        ├── app.R
+        ├── movies.RData
+        ├── renv
+        │   ├── activate.R
+        │   ├── library
+        │   │   └── R-4.2
+        │   ├── sandbox
+        │   │   └── R-4.2
+        │   ├── settings.dcf
+        │   └── staging
+        ├── renv.lock
+        └── utils.R
 
-7 directories, 5 files
+7 directories, 7 files
 ```
 
 ## R App (as a package)
@@ -68,7 +70,7 @@ When creating a new package in the IDE, I provide a name and the parent folder. 
 knitr::include_graphics(path = "img/rpkg-setup.png")
 ```
 
-### Folder structure 
+### Folder structure
 
 <!-- tree myRPkg -L 5 -->
 
@@ -99,7 +101,7 @@ cat myPkgApp/DESCRIPTION
 ```
 
 
-## `golem` projects 
+## `golem` projects
 
 From the console, `golem` apps are also packages and are built using `golem::create_golem()`:
 
@@ -117,7 +119,7 @@ New `golem` packages automatically perform a check on the name of the package (`
 knitr::include_graphics(path = "img/golem-setup.png")
 ```
 
-### Folder structure 
+### Folder structure
 
 <!-- tree myGolemApp -L 5 -->
 
@@ -184,7 +186,7 @@ knitr::include_graphics(path = "img/leprechaun-setup.png")
 ```
 
 
-### Folder structure 
+### Folder structure
 
 
 ```{bash tree-leprechaun, eval=FALSE}
@@ -241,7 +243,7 @@ New `rhino` packages automatically create GitHub Actions Continuous Integration 
 knitr::include_graphics(path = "img/rhino-setup.png")
 ```
 
-### Folder structure 
+### Folder structure
 
 ```{bash tree-rhino, eval=FALSE}
 myRhinoApp

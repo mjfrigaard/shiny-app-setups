@@ -24,7 +24,7 @@
 #' # with prefix
 #' send_message <- make_send_message(session, prefix = "PREFIX")
 #'
-#' # this sends a message of type:
+#' # this sends a mesasge of type:
 #' # PREFIX-so-th
 #' send_message("do-sth")
 #' }
