@@ -1,12 +1,12 @@
 #' Run
-#' 
+#'
 #' Run application
-#' 
+#'
 #' @param ... Additional parameters to pass to [shiny::shinyApp].
-#' 
+#'
 #' @importFrom shiny shinyApp
-#' 
-#' @export 
+#'
+#' @export
 run <- function(...){
 	shinyApp(
 		ui = ui,
@@ -16,12 +16,13 @@ run <- function(...){
 }
 
 #' Run Development
-#' 
+#'
 #' Runs the development version which includes
 #' the build step.
-#' 
+#'
 #' @keywords internal
-run_dev <- function(){
+#' @noRd
+run_dev <- function() {
 	file <- system.file("run/app.R", package = "myLeprechaunApp")
 	shiny::shinyAppFile(file)
 }

@@ -9,7 +9,9 @@ plot_displayUI(id)
 \arguments{
 \item{id}{Unique id for module instance.}
 }
-\description{
-plot_display UI
+\value{
+shiny UI module
 }
-\keyword{internal}
+\description{
+A shiny Module.
+}

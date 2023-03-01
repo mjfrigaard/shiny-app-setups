@@ -1,18 +1,18 @@
-# Load packages ----------------------------------------------------------------
+# Load packages ----------------------------
 
 library(shiny)
 library(ggplot2)
 library(dplyr)
 library(tools)
 
-# Load data --------------------------------------------------------------------
+# Load data ---------------------------------
 
 load("movies.RData")
 
-# utils  --------------------------------------------------------------------
+# utils  ------------------------------------
 source("utils.R")
 
-# Define UI --------------------------------------------------------------------
+# Define UI ---------------------------------
 ui <- fluidPage(
   
   titlePanel(title = "movies data app (demo)"),
@@ -77,7 +77,7 @@ ui <- fluidPage(
       shiny::textInput(
         inputId = "plot_title",
         label = "Plot title",
-        placeholder = "Enter plot title"
+        value = "Enter plot title"
       )
     ),
     shiny::mainPanel(
@@ -96,7 +96,7 @@ ui <- fluidPage(
   )
 )
 
-# Define server ----------------------------------------------------------------
+# Define server -------------------------
 
 server <- function(input, output, session) {
   output$scatterplot <- shiny::renderPlot({
@@ -117,6 +117,5 @@ server <- function(input, output, session) {
   })
 }
 
-# Create the Shiny app object --------------------------------------------------
-
+# Create the Shiny app object -----------------------------------
 shiny::shinyApp(ui = ui, server = server)

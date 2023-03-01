@@ -15,6 +15,7 @@ Imports:
     htmltools,
     shiny
 Suggests: 
+    packer,
     pkgload,
     sass
 Depends: 

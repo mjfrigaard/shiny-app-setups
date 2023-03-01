@@ -2,7 +2,13 @@
 #'
 #' @param id Unique id for module instance.
 #'
-#' @keywords internal
+#' @return shiny UI module
+#' @export plot_displayUI
+#'
+#' @description A shiny Module.
+#'
+#' @importFrom shiny NS tagList tags
+#' @importFrom shiny plotOutput
 plot_displayUI <- function(id){
 	ns <- shiny::NS(id)
 	shiny::tagList(
@@ -39,6 +45,10 @@ plot_display_server <- function(id, var_inputs){
 				ns <- session$ns
 				send_message <- make_send_message(session)
 
+				send_message("show-packer",
+				  text = "this is a message from your plot_display module")
+
+				# your code here
     movies <- myLeprechaunApp::movies
 
     inputs <- shiny::reactive({

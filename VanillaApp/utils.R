@@ -22,3 +22,5 @@ point_plot <- function(df, x_var, y_var, col_var, alpha_var, size_var) {
   ) +
     ggplot2::geom_point(alpha = alpha_var, size = size_var)
 }
+
+

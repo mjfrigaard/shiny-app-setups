@@ -11,15 +11,21 @@ app_ui <- function(request) {
     # Your application UI logic
     shiny::fluidPage(
       shiny::tags$h1("myGolemApp"),
-
       shiny::sidebarLayout(
         shiny::sidebarPanel(
           mod_var_input_ui("vars")
         ),
         shiny::mainPanel(
-          # add icon
+          # add shiny hex in www/
           shiny::tags$img(src = "www/shiny.png"),
-          mod_plot_ui("plot")
+          mod_plot_ui("plot"),
+          # add golem hex (in www/images/)
+          shiny::fluidRow(
+            shiny::tags$em(shiny::tags$h4(
+              "Brought to you by: ",
+              shiny::tags$img(src = "www/images/golem-hex.png")
+            ))
+          )
         )
       )
     )

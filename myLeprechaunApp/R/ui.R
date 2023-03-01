@@ -6,23 +6,27 @@
 #'
 #' @import shiny
 #' @importFrom bslib bs_theme
+#' @importFrom shiny fluidPage sidebarLayout
+#' @importFrom shiny sidebarPanel mainPanel
 #'
 #' @keywords internal
 ui <- function(req) {
-  fluidPage(
+  shiny::fluidPage(
     theme = bs_theme(version = 5),
     assets(),
     h1("myLeprechaunApp"),
-    shiny::sidebarLayout(
-      shiny::sidebarPanel(
-        var_inputUI("vars")
-      ),
-      shiny::mainPanel(
-        # new image
-        shiny::tags$img(src = "img/leprechaun.jpg"),
-        plot_displayUI("plot")
-      )
-    )
+    ## New code -->
+        shiny::sidebarLayout(
+          shiny::sidebarPanel(
+            var_inputUI("vars")
+          ),
+          shiny::mainPanel(
+          # new image
+          shiny::tags$img(src = "img/leprechaun.jpg"),
+          plot_displayUI("plot")
+          )
+        )
+    ## New code <--
   )
 }
 
@@ -40,7 +44,7 @@ assets <- function(){
 	list(
 		serveAssets(), # base assets (assets.R)
 		tags$head(
-			# Place any additional depdendencies here
+			# Place any additional dependencies here
 			# e.g.: CDN
 		)
 	)
