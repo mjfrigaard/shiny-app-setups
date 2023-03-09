@@ -3,11 +3,11 @@
 #' @param id module id
 #'
 #' @return shiny UI module
-#' @export display_plot_mod_ui
+#' @export mod_display_plot_ui
 #'
 #' @importFrom shiny NS tagList tags
 #' @importFrom shiny plotOutput verbatimTextOutput
-display_plot_mod_ui <- function(id) {
+mod_display_plot_ui <- function(id) {
   ns <- shiny::NS(id)
   shiny::tagList(
     shiny::tags$br(),
@@ -18,7 +18,6 @@ display_plot_mod_ui <- function(id) {
           href = "https://rstudio-education.github.io/shiny-course/"),
                       "tutorial"))),
     shiny::plotOutput(outputId = ns("scatterplot"))
-    # , verbatimTextOutput(outputId = ns("values"))
   )
 }
 
@@ -28,14 +27,14 @@ display_plot_mod_ui <- function(id) {
 #' @param var_inputs inputs from mod_var_input
 #'
 #' @return shiny server module
-#' @export display_plot_mod_server
+#' @export mod_display_plot_server
 #'
 #' @importFrom shiny NS moduleServer reactive
 #' @importFrom tools toTitleCase
 #' @importFrom shiny renderPlot
 #' @importFrom stringr str_replace_all
 #' @importFrom ggplot2 labs theme_minimal theme
-display_plot_mod_server <- function(id, var_inputs) {
+mod_display_plot_server <- function(id, var_inputs) {
   shiny::moduleServer(id, function(input, output, session) {
     movies <- myPkgApp::movies
 
@@ -68,8 +67,5 @@ display_plot_mod_server <- function(id, var_inputs) {
         ggplot2::theme_minimal() +
         ggplot2::theme(legend.position = "bottom")
     })
-    # output$values <- renderPrint({
-    #   inputs()
-    # })
   })
 }

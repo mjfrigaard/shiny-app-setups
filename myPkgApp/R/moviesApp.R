@@ -14,7 +14,7 @@ moviesApp <- function() {
           mod_var_input_ui("vars")
         ),
         shiny::mainPanel(
-          display_plot_mod_ui("plot")
+          mod_display_plot_ui("plot")
         )
       )
     ),
@@ -22,7 +22,7 @@ moviesApp <- function() {
 
       selected_vars <- mod_var_input_server("vars")
 
-      display_plot_mod_server("plot", var_inputs = selected_vars)
+      mod_display_plot_server("plot", var_inputs = selected_vars)
     }
   )
 }

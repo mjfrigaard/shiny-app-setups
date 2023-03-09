@@ -1,5 +1,5 @@
 test_that("module ui works", {
-  ui <- display_plot_mod_ui(id = "test")
+  ui <- mod_display_plot_ui(id = "test")
   # check list
   testthat::expect_type(object = ui, type = "list")
   testthat::expect_true(is(ui, "list"))
@@ -59,7 +59,7 @@ test_that("module ui works", {
 })
 
 shiny::testServer(
-  display_plot_mod_server,
+  mod_display_plot_server,
   # Add here your module params
   args = list(
 
