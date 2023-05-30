@@ -7,11 +7,12 @@
 <!-- badges: end -->
 
 `shiny-app-setups` contains setups for 1) A vanilla shiny app
-(`VanillaApp`), 2) an app built as an R package, 2) a `golem` shiny app
-3) a `rhino` app, and 4) a `leprechaun` app.
+(`vanilla-shiny`), 2) an app built as an R package (`duap`), 2) a
+`golem` shiny app (`gap`) 3) a `leprechaun` app (`lap`), and 4) a
+`rhino` app (`rap`).
 
-All projects were created in console or in the RStudio IDE (with the
-default options selected).
+All projects were created in the console and/or in the RStudio IDE (with
+the default options selected).
 
 ## Basic shiny app
 
@@ -23,20 +24,22 @@ the following folder structure.
 ### Folder structure
 
 ``` bash
-VanillaApp/
-  ├── VanillaApp.Rproj
-  ├── app.R
-  ├── renv
-  │   ├── activate.R
-  │   ├── library
-  │   │   └── R-4.2
-  │   ├── sandbox
-  │   │   └── R-4.2
-  │   ├── settings.dcf
-  │   └── staging
-  └── renv.lock
+vanilla-shiny/
+        ├── vanilla-shiny.Rproj
+        ├── app.R
+        ├── movies.RData
+        ├── renv
+        │   ├── activate.R
+        │   ├── library
+        │   │   └── R-4.2
+        │   ├── sandbox
+        │   │   └── R-4.2
+        │   ├── settings.dcf
+        │   └── staging
+        ├── renv.lock
+        └── utils.R
 
-7 directories, 5 files
+7 directories, 7 files
 ```
 
 ## R App (as a package)
@@ -49,7 +52,7 @@ The function for building a new package is `usethis::create_package()`
 install.packages("devtools")
 library(devtools)
 Loading required package: usethis
-usethis::create_package(path = "myPkgApp")
+usethis::create_package(path = "duap")
 ```
 
 When creating a new package in the IDE, I provide a name and the parent
@@ -64,7 +67,7 @@ create a git repo.
 <!-- tree myRPkg -L 5 -->
 
 ``` bash
-myPkgApp/
+duap/
   ├── DESCRIPTION
   ├── NAMESPACE
   ├── R
@@ -85,30 +88,9 @@ myPkgApp/
 
 ### `DESCRIPTION` file
 
-    Package: myPkgApp
-    Type: Package
-    Title: What the Package Does (Title Case)
-    Version: 0.1.0
-    Author: Who wrote it
-    Maintainer: The package maintainer <yourself@somewhere.net>
-    Description: More about what it does (maybe more than one line)
-        Use four spaces when indenting paragraphs within the Description.
-    License: MIT + file LICENSE
-    Encoding: UTF-8
-    LazyData: true
-    RoxygenNote: 7.2.3
-    Depends: 
-        R (>= 3.5)
-    Suggests: 
-        knitr,
-        rmarkdown,
-        testthat (>= 3.0.0)
-    Config/testthat/edition: 3
-    VignetteBuilder: knitr
-    Imports: 
-        ggplot2,
-        shiny,
-        stringr
+``` bash
+cat duap/DESCRIPTION
+```
 
 ## `golem` projects
 
@@ -118,7 +100,7 @@ From the console, `golem` apps are also packages and are built using
 ``` r
 install.packages("golem")
 library(golem)
-golem::create_golem(path = "myGolemApp")
+golem::create_golem(path = "gap")
 ```
 
 When creating a new `golem` package in the IDE, I provide the name and
@@ -131,10 +113,10 @@ package (`check_name = TRUE`).
 
 ### Folder structure
 
-<!-- tree myGolemApp -L 5 -->
+<!-- tree gap -L 5 -->
 
 ``` bash
-myGolemApp
+gap
     ├── DESCRIPTION
     ├── NAMESPACE
     ├── R
@@ -154,7 +136,7 @@ myGolemApp
     │   └── golem-config.yml
     ├── man
     │   └── run_app.Rd
-    ├── myGolemApp.Rproj
+    ├── gap.Rproj
     ├── renv
     │   ├── activate.R
     │   ├── sandbox
@@ -169,7 +151,7 @@ myGolemApp
 
 ### `DESCRIPTION` file
 
-    Package: myGolemApp
+    Package: gap
     Title: An example goelm app
     Version: 0.0.0.9000
     Authors@R: 
@@ -180,6 +162,7 @@ myGolemApp
         config (>= 0.3.1),
         ggplot2,
         golem (>= 0.3.5),
+        pkgload,
         shiny (>= 1.7.4),
         stringr
     Suggests: 
@@ -200,7 +183,7 @@ myGolemApp
 (`devtools` and `usethis`).
 
 ``` r
-usethis::create_package("myLeprechaunApp")
+usethis::create_package("lap")
 ```
 
 After the new project opens, install and load the `leprechaun` package,
@@ -220,7 +203,7 @@ the R package setup.
 ### Folder structure
 
 ``` bash
-myLeprechaunApp/
+lap/
       ├── DESCRIPTION
       ├── NAMESPACE
       ├── R
@@ -238,22 +221,21 @@ myLeprechaunApp/
       │   ├── img
       │   └── run
       │       └── app.R
-      └── myLeprechaunApp.Rproj
+      └── lap.Rproj
       
       7 directories, 12 files
 ```
 
 ### `DESCRIPTION` file
 
-    Package: myLeprechaunApp
-    Title: What the Package Does (One Line, Title Case)
-    Version: 0.0.0.9000
-    Authors@R: 
-        person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-               comment = c(ORCID = "YOUR-ORCID-ID"))
-    Description: What the package does (one paragraph).
-    License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-        license
+    Package: lap
+    Title: Build Your Shiny App using leprechaun
+    Version: 0.1.0
+    Author: Martin Frigaard
+    Maintainer: Martin Frigaard <mjfrigaard@pm.me>
+    Description: This shiny app was developed as a package using the leprechaun 
+        framework.
+    License: MIT + file LICENSE
     Encoding: UTF-8
     Roxygen: list(markdown = TRUE)
     RoxygenNote: 7.2.3
@@ -262,7 +244,12 @@ myLeprechaunApp/
         htmltools,
         shiny
     Suggests: 
-        pkgload
+        packer,
+        pkgload,
+        sass
+    Depends: 
+        R (>= 2.10)
+    LazyData: true
 
 ## `rhino` projects
 
@@ -272,7 +259,7 @@ From the console, `rhino` apps not packages (they use
 ``` r
 install.packages("rhino")
 library(rhino)
-rhino::init(dir = "myRhinoApp")
+rhino::init(dir = "rap")
 ```
 
 When creating a new `rhino` package in the IDE, I provide the name and
@@ -286,7 +273,7 @@ Integration (`github_actions_ci = TRUE`).
 ### Folder structure
 
 ``` bash
-myRhinoApp
+rap
     ├── app
     │   ├── js
     │   │   └── index.js
@@ -302,7 +289,7 @@ myRhinoApp
     ├── app.R
     ├── config.yml
     ├── dependencies.R
-    ├── myRhinoApp.Rproj
+    ├── rap.Rproj
     ├── renv
     │   ├── activate.R
     │   ├── library

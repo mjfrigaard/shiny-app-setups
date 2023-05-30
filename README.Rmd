@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-`shiny-app-setups` contains setups for 1) A vanilla shiny app (`VanillaApp`), 2) an app built as an R package (`myPkgApp`), 2) a `golem` shiny app (`myGolemApp`) 3) a `leprechaun` app (`myLeprechaunApp`), and 4) a `rhino` app (`myRhinoApp`).  
+`shiny-app-setups` contains setups for 1) A vanilla shiny app (`vanilla-shiny`), 2) an app built as an R package (`duap`), 2) a `golem` shiny app (`gap`) 3) a `leprechaun` app (`lap`), and 4) a `rhino` app (`rap`).  
 
 All projects were created in the console and/or in the RStudio IDE (with the default options selected). 
 
@@ -33,8 +33,8 @@ knitr::include_graphics(path = "img/vanilla-setup.png")
 ### Folder structure
 
 ```{bash vanilla-tree, eval=FALSE}
-VanillaApp/
-        ├── VanillaApp.Rproj
+vanilla-shiny/
+        ├── vanilla-shiny.Rproj
         ├── app.R
         ├── movies.RData
         ├── renv
@@ -57,11 +57,11 @@ From the console, packages are built using `devtools` and `usethis`.
 
 The function for building a new package is `usethis::create_package()`
 
-```{r create_package-myPkgApp, eval=FALSE}
+```{r create_package-duap, eval=FALSE}
 install.packages("devtools")
 library(devtools)
 Loading required package: usethis
-usethis::create_package(path = "myPkgApp")
+usethis::create_package(path = "duap")
 ```
 
 When creating a new package in the IDE, I provide a name and the parent folder. New R packages use `roxygen2` (`roxygen = TRUE`) and check the package name (`check_name = TRUE`), and default to using `renv` and create a git repo. 
@@ -75,7 +75,7 @@ knitr::include_graphics(path = "img/rpkg-setup.png")
 <!-- tree myRPkg -L 5 -->
 
 ```{bash pkg-tree, eval=FALSE}
-myPkgApp/
+duap/
   ├── DESCRIPTION
   ├── NAMESPACE
   ├── R
@@ -96,8 +96,8 @@ myPkgApp/
 
 ### `DESCRIPTION` file
 
-```{bash descr-pkg, echo=FALSE}
-cat myPkgApp/DESCRIPTION
+```{bash descr-pkg, eval=FALSE}
+cat duap/DESCRIPTION
 ```
 
 
@@ -105,10 +105,10 @@ cat myPkgApp/DESCRIPTION
 
 From the console, `golem` apps are also packages and are built using `golem::create_golem()`:
 
-```{r create_golem-myGolemApp, eval=FALSE}
+```{r create_golem-gap, eval=FALSE}
 install.packages("golem")
 library(golem)
-golem::create_golem(path = "myGolemApp")
+golem::create_golem(path = "gap")
 ```
 
 When creating a new `golem` package in the IDE, I provide the name and the parent folder. 
@@ -121,10 +121,10 @@ knitr::include_graphics(path = "img/golem-setup.png")
 
 ### Folder structure
 
-<!-- tree myGolemApp -L 5 -->
+<!-- tree gap -L 5 -->
 
 ```{bash golem, eval=FALSE}
-myGolemApp
+gap
     ├── DESCRIPTION
     ├── NAMESPACE
     ├── R
@@ -144,7 +144,7 @@ myGolemApp
     │   └── golem-config.yml
     ├── man
     │   └── run_app.Rd
-    ├── myGolemApp.Rproj
+    ├── gap.Rproj
     ├── renv
     │   ├── activate.R
     │   ├── sandbox
@@ -160,20 +160,20 @@ myGolemApp
 ### `DESCRIPTION` file
 
 ```{bash descr-golem, echo=FALSE}
-cat myGolemApp/DESCRIPTION
+cat gap/DESCRIPTION
 ```
 
 ## `leprechaun` projects
 
 `leprechaun` apps are built using the same methods as R packages (`devtools` and `usethis`). 
 
-```{r create_package-myLeprechaunApp, eval=FALSE}
-usethis::create_package("myLeprechaunApp")
+```{r create_package-lap, eval=FALSE}
+usethis::create_package("lap")
 ```
 
 After the new project opens, install and load the `leprechaun` package, then run `leprechaun::scaffold()`:
 
-```{r scaffold-myLeprechaunApp, eval=FALSE}
+```{r scaffold-lap, eval=FALSE}
 install.packages("leprechaun")
 library(leprechaun)
 leprechaun::scaffold()
@@ -190,7 +190,7 @@ knitr::include_graphics(path = "img/leprechaun-setup.png")
 
 
 ```{bash tree-leprechaun, eval=FALSE}
-myLeprechaunApp/
+lap/
       ├── DESCRIPTION
       ├── NAMESPACE
       ├── R
@@ -208,7 +208,7 @@ myLeprechaunApp/
       │   ├── img
       │   └── run
       │       └── app.R
-      └── myLeprechaunApp.Rproj
+      └── lap.Rproj
       
       7 directories, 12 files
 ```
@@ -217,21 +217,18 @@ myLeprechaunApp/
 ### `DESCRIPTION` file
 
 ```{bash descr-leprechaun, echo=FALSE}
-cat myLeprechaunApp/DESCRIPTION
+cat lap/DESCRIPTION
 ```
-
-
-
 
 
 ## `rhino` projects
 
 From the console, `rhino` apps not packages (they use [`box`](https://klmr.me/box/)), and are built using `rhino::init()`:
 
-```{r init-myRhinoApp, eval=FALSE}
+```{r init-rap, eval=FALSE}
 install.packages("rhino")
 library(rhino)
-rhino::init(dir = "myRhinoApp")
+rhino::init(dir = "rap")
 ```
 
 
@@ -246,7 +243,7 @@ knitr::include_graphics(path = "img/rhino-setup.png")
 ### Folder structure
 
 ```{bash tree-rhino, eval=FALSE}
-myRhinoApp
+rap
     ├── app
     │   ├── js
     │   │   └── index.js
@@ -262,7 +259,7 @@ myRhinoApp
     ├── app.R
     ├── config.yml
     ├── dependencies.R
-    ├── myRhinoApp.Rproj
+    ├── rap.Rproj
     ├── renv
     │   ├── activate.R
     │   ├── library
@@ -289,14 +286,14 @@ myRhinoApp
 ### `config.yml` file
 
 ```{bash config-rhino, echo=FALSE}
-cat myRhinoApp/config.yml
+cat rap/config.yml
 ```
 
 
 ### `rhino.yml` file
 
 ```{bash rhino-yml, echo=FALSE}
-cat myRhinoApp/rhino.yml
+cat rap/rhino.yml
 ```
 
 
